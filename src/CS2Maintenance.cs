@@ -55,7 +55,7 @@ namespace K4ryuuMaintenance
 			if (player == null || !player.IsValid || player.PlayerPawn.Value == null)
 				return;
 
-			if (!bool.TryParse(command.ArgByIndex(1), out bool parsedBool))
+			if (!TryConvertStringToBool(command.ArgByIndex(1), out bool parsedBool))
 			{
 				command.ReplyToCommand($" {ChatColors.Yellow}[MAINTENANCE] {ChatColors.LightRed}Invalid argument. Usage: !maintenance [0|1]");
 				return;
@@ -95,6 +95,23 @@ namespace K4ryuuMaintenance
 			}
 
 			return HookResult.Continue;
+		}
+
+		public bool TryConvertStringToBool(string str, out bool result)
+		{
+			if (str == "1")
+			{
+				result = true;
+				return true;
+			}
+			else if (str == "0")
+			{
+				result = false;
+				return true;
+			}
+
+			result = false;
+			return false;
 		}
 
 		public bool PlayerCanBeOnline(CCSPlayerController player)
