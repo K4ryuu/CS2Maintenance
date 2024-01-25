@@ -68,9 +68,9 @@ namespace K4ryuuMaintenance
 				if (target is null || !target.IsValid || !target.PlayerPawn.IsValid || target.IsBot || target.IsHLTV)
 					continue;
 
-				if (!PlayerCanBeOnline(player))
+				if (!PlayerCanBeOnline(target))
 				{
-					Server.ExecuteCommand($"kickid {player.UserId} \"Currently in maintenance mode. Please try again later.\"");
+					Server.ExecuteCommand($"kickid {target.UserId} \"Currently in maintenance mode. Please try again later.\"");
 				}
 			}
 
