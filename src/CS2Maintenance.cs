@@ -33,7 +33,7 @@ namespace K4ryuuMaintenance
 	{
 
 		public override string ModuleName => "CS2 Maintenance";
-		public override string ModuleVersion => "1.0.0";
+		public override string ModuleVersion => "1.0.1";
 		public override string ModuleAuthor => "K4ryuu";
 
 		public required PluginConfig Config { get; set; } = new PluginConfig();
